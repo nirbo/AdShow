@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+			xmlns:h="http://java.sun.com/jsf/html"  
+			xmlns:f="http://java.sun.com/jsf/core" 
+			xmlns:ui="http://java.sun.com/jsf/facelets"  
+			xmlns:p="http://primefaces.org/ui">
+		
+		<h:head>
+			<title>AdShow Login</title>
+		</h:head>
+		
+		<h:body onload="LoginDialog.show();">
+			<h:form id="loginForm">
+				<p:growl id="messages" showDetail="true" life="5000" />
+				
+				<p:dialog header="Administrator Login" widgetVar="LoginDialog" resizable="false" >
+					<p:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="username" value="Username: " />
+						<p:inputText id="username" value="#{adminLogin.username}" required="true" label="username"/>
+						
+						<h:outputLabel for="password" value="Password: " />
+						<p:inputText id="password" value="#{adminLogin.password}" required="true" label="password"/>
+						
+						<f:facet name="footer">
+							<p:commandButton value="Login" update="messages" actionListener="#{adminLogin.login}"
+											 oncomplete="#{adminLogin.login}"/>
+						</f:facet>
+					</p:panelGrid>	
+				</p:dialog>		
+			</h:form>
+		</h:body>
+		
+		
+		
+		
+		
+</html>
